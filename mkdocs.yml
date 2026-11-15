@@ -1,0 +1,217 @@
+site_name: LM Knowledge Base
+site_description: >-
+  How the DFlash2 draft model is trained: formulas, measurements and caveats
+  from one concrete Stage-2 run.
+site_url: https://biscet.github.io/lm-docs/
+repo_url: https://github.com/biscet/lm-docs
+repo_name: biscet/lm-docs
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+extra:
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Русский
+      link: /ru/
+      lang: ru
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: ru
+          name: Русский
+          build: true
+          site_name: База знаний по LLM
+          site_description: >-
+            Как обучается draft-модель DFlash2: формулы, замеры и оговорки
+            одного прогона Stage-2.
+          theme:
+            language: ru
+          nav_translations:
+            Home: Главная
+            Overview: Обзор
+            What DFlash2 trains: Что обучает DFlash2
+            Notation: Обозначения
+            End-to-end pipeline: Полный конвейер
+            Training data: Обучающие данные
+            Target generation: Генерация target
+            Feature capture: Захват признаков
+            Feature projection: Проекция признаков
+            Anchors and masked blocks: Anchor и маскированный блок
+            Anchor sampling: Выбор anchor
+            Context window: Окно контекста
+            Draft architecture: Архитектура draft
+            Layer stack: Стек слоёв
+            Attention: Attention
+            MLP: MLP
+            Dynamic convolutions: Динамические свёртки
+            Output head and top-16: Output head и top-16
+            Objective: Функция потерь
+            Cross-entropy: Cross-entropy
+            Selector scoring: Скоринг селектора
+            Selector loss: Loss селектора
+            Total loss: Общий loss
+            Optimization: Оптимизация
+            Gradient clipping: Gradient clipping
+            AdamW: AdamW
+            Learning rate: Learning rate
+            Mixed precision: Mixed precision
+            Validation: Валидация
+            Offline metrics: Offline-метрики
+            Prefix proxy: Prefix proxy
+            Validation windows: Окна валидации
+            Training positions: Обучающие позиции
+            Multi-anchor analysis: Несколько anchor
+            Averaging over anchors: Усреднение по anchor
+            Expected coverage: Ожидаемое покрытие
+            Runtime and benchmark: Runtime и бенчмарк
+            Greedy verification: Greedy-проверка
+            Speculative sampling: Speculative sampling
+            Acceptance rate: Acceptance
+            Speedup model: Модель ускорения
+            Benchmark setup: Постановка бенчмарка
+            Paired bootstrap: Парный bootstrap
+            Loss and accuracy deltas: Изменения loss и accuracy
+            Training workflow: Рабочий процесс
+            Checkpoint selection: Выбор checkpoint
+            Feature storage: Хранение признаков
+            Optimizer state memory: Память оптимизатора
+            Export and rounding: Экспорт и округление
+            Dataset: Датасет
+            Mixing: Смесь
+            Splits and leakage: Сплиты и утечки
+            Reference: Справочник
+            One training step: Один шаг обучения
+            What formulas cannot tell: Чего формулы не говорят
+            Sources: Источники
+
+extra_css:
+  - assets/stylesheets/katex.min.css
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/katex.min.js
+  - assets/javascripts/auto-render.min.js
+  - assets/javascripts/math.js
+  - assets/javascripts/mermaid.min.js
+  - assets/javascripts/diagrams.js
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Home: index.md
+  - Overview:
+      - What DFlash2 trains: overview/what-dflash-trains.md
+      - Notation: overview/notation.md
+      - End-to-end pipeline: overview/pipeline.md
+  - Training data:
+      - Target generation: data/target-generation.md
+      - Feature capture: data/feature-capture.md
+      - Feature projection: data/feature-projection.md
+      - Anchors and masked blocks: data/anchors-and-blocks.md
+      - Anchor sampling: data/anchor-sampling.md
+      - Context window: data/context-window.md
+  - Draft architecture:
+      - Layer stack: architecture/overview.md
+      - Attention: architecture/attention.md
+      - MLP: architecture/mlp.md
+      - Dynamic convolutions: architecture/convolutions.md
+      - Output head and top-16: architecture/output-head.md
+  - Objective:
+      - Cross-entropy: objective/cross-entropy.md
+      - Selector scoring: objective/selector-scoring.md
+      - Selector loss: objective/selector-loss.md
+      - Total loss: objective/total-loss.md
+  - Optimization:
+      - Gradient clipping: optimization/gradient-clipping.md
+      - AdamW: optimization/adamw.md
+      - Learning rate: optimization/learning-rate.md
+      - Mixed precision: optimization/mixed-precision.md
+  - Validation:
+      - Offline metrics: validation/offline-metrics.md
+      - Prefix proxy: validation/prefix-proxy.md
+      - Validation windows: validation/validation-windows.md
+      - Training positions: validation/training-positions.md
+  - Multi-anchor analysis:
+      - Averaging over anchors: analysis/multi-anchor.md
+      - Expected coverage: analysis/anchor-coverage.md
+  - Runtime and benchmark:
+      - Greedy verification: runtime/verification.md
+      - Speculative sampling: runtime/speculative-sampling.md
+      - Acceptance rate: runtime/acceptance.md
+      - Speedup model: runtime/speedup-model.md
+      - Benchmark setup: runtime/benchmark.md
+      - Paired bootstrap: runtime/bootstrap.md
+      - Loss and accuracy deltas: runtime/metric-deltas.md
+  - Training workflow:
+      - Checkpoint selection: workflow/checkpoint-selection.md
+      - Feature storage: workflow/feature-storage.md
+      - Optimizer state memory: workflow/training-state.md
+      - Export and rounding: workflow/export.md
+  - Dataset:
+      - Mixing: dataset/mixing.md
+      - Splits and leakage: dataset/splits.md
+  - Reference:
+      - One training step: pseudocode.md
+      - What formulas cannot tell: caveats.md
+      - Sources: sources.md

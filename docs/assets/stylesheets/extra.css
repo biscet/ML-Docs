@@ -1,0 +1,25 @@
+/* Wide display math should scroll inside the content column instead of
+   overflowing it. */
+.md-typeset div.arithmatex {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.1rem;
+}
+
+.md-typeset div.arithmatex > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Mermaid renders inline SVG, which needs a little breathing room. */
+.md-typeset .mermaid {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* Numeric columns in the measurement tables read better right-aligned. */
+.md-typeset table:not([class]) td:has(> .num),
+.md-typeset table:not([class]) th:has(> .num) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

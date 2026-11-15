@@ -1,0 +1,13 @@
+# Python virtualenv used to build the docs
+.venv/
+__pycache__/
+*.pyc
+
+# MkDocs build output
+site/
+
+# Editor and OS noise
+.DS_Store
+.idea/
+.vscode/
+.qwen/
