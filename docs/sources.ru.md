@@ -1,6 +1,6 @@
 # Источники
 
-## Код, с которым сверялся документ
+## Код разбора Stage-2
 
 | Часть | Файл или функция |
 | --- | --- |
@@ -25,12 +25,27 @@
 - [PyTorch AdamW](https://docs.pytorch.org/docs/2.8/generated/torch.optim.AdamW.html)
 - [PyTorch AMP](https://docs.pytorch.org/docs/2.8/notes/amp_examples.html)
 
-## Происхождение чисел
+## Происхождение материала
 
 Числа выполненного этапа сверены с сохранёнными отчётами и размерами батчей.
 Предложения по следующему датасету лежат в отдельном разборе Stage-2, которого в
 этом репозитории нет.
 
-Русская исходная заметка сохранена дословно в
-[`original/dflash-training-formulas.ru.md`](https://github.com/biscet/lm-docs/blob/main/original/dflash-training-formulas.ru.md),
-чтобы перевод можно было сравнить с оригиналом.
+[История экспериментов Whittle](experiments/index.md) охватывает обучение по
+состоянию на 16 ноября 2026 года. Результаты перенесены из переданной истории
+обучения; сами прогоны и тесты архива заново не запускались.
+[Описание архива Coach](experiments/coach.md) связывает
+темы с исходниками и указывает объём зафиксированных проверок. Сам отдельный
+архив в репозиторий не входит.
+
+## Публичные веса и датасеты
+
+- [Whittle DFlash2](https://huggingface.co/biscet/Whittle-35B-A3B-DFlash2)
+- [Срез весов v1.0.0](https://huggingface.co/biscet/Whittle-35B-A3B-DFlash2/tree/v1.0.0)
+- [Срез весов v1.2.0](https://huggingface.co/biscet/Whittle-35B-A3B-DFlash2/tree/v1.2.0)
+- [Неизменяемый commit публикации v1.2.1](https://huggingface.co/biscet/Whittle-35B-A3B-DFlash2/commit/7c12955b782befff10cde7b28e170f8cec789a19)
+- [DFlash DeepSeek TraceMix](https://huggingface.co/datasets/biscet/DFlash-DeepSeek-TraceMix)
+- [DFlash TraceMix Lite v1.0.0](https://huggingface.co/datasets/biscet/DFlash-TraceMix-Lite/tree/v1.0.0)
+
+Для воспроизведения нужны код опыта, конфигурация и хеши входов.
+Одного изменяемого README модели недостаточно, чтобы определить запуск.

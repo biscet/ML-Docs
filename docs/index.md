@@ -1,17 +1,23 @@
-# How DFlash2 trains its draft model
+# DFlash2 draft training
 
-13 November 2026.
+Updated 16 November 2026.
 
-This is a walkthrough of one trainer, the one that ran Stage-2. Formulas sit next
-to explanations and numeric examples. The general theory of speculative decoding
-is kept apart from what was actually implemented and measured here.
+This knowledge base covers the Whittle DFlash2 draft: a detailed Stage-2
+walkthrough and a history of training experiments from LoRA to forward KL.
 
 DFlash has two jobs that differ from ordinary LLM fine-tuning. The base model
 already knows how to answer. A small draft model learns to anticipate its next
 tokens so the base model can check several tokens in one forward pass. In this
 run the base model's weights never changed.
 
-## The run at a glance
+## Where to start
+
+| Material | Contents |
+| --- | --- |
+| [Stage-2 walkthrough](overview/pipeline.md) | Data, architecture, loss, validation and runtime benchmark for the 13 November run |
+| [Whittle experiments](experiments/index.md) | Training configurations, completed budgets, results and checkpoint lineage through 16 November |
+
+## Stage-2 at a glance
 
 | Quantity | Value |
 | --- | ---: |
@@ -28,7 +34,8 @@ run the base model's weights never changed.
 
 ## Reading order
 
-The chapters follow the order in which the trainer touches the data.
+The Stage-2 chapters follow the training pipeline. The experiment history has
+its own [reading order](experiments/index.md).
 
 | Chapter | What it answers |
 | --- | --- |
@@ -51,7 +58,8 @@ The chapters follow the order in which the trainer touches the data.
 Several measured quantities look interchangeable and are not. Each one is tied to
 the procedure that produced it:
 
-- Offline accuracy is computed on anchor blocks with teacher forcing.
+- Stage-2 offline accuracy uses teacher-forced anchor blocks. Later experiments
+  also report [self-conditioned accuracy](validation/self-conditioned.md).
 - Runtime acceptance is what the server counts while checking real drafts.
 - Decode speed is a ratio of token sums to time sums over a fixed request set.
 

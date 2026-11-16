@@ -49,3 +49,14 @@ the data distribution every time a large activation overflowed.
 
 The order of operations follows the
 [PyTorch AMP examples](https://docs.pytorch.org/docs/2.8/notes/amp_examples.html).
+
+## Earlier and later trainers
+
+The initial full-training script had a simpler skip path for non-finite
+gradients. Same-batch retry belongs to the later shared `amp_train_step` helper;
+it should not be assumed for every historical script.
+
+With several anchors, each microbatch loss is divided by the microbatch count.
+After all backward passes, the helper unscales, checks gradients and applies
+clipping at norm 1.0 before one update. Overflow retries do not count as
+successful optimizer updates. See [dense8](../experiments/dense-anchors.md).

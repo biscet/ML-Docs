@@ -1,6 +1,6 @@
 # Sources
 
-## Code this document was checked against
+## Code behind the Stage-2 walkthrough
 
 | Part | File or function |
 | --- | --- |
@@ -31,6 +31,21 @@ The numbers of the executed stage were cross-checked against saved reports and
 batch sizes. Proposals for the next dataset live in a separate Stage-2 dataset
 review, which is not part of this repository.
 
-The original Russian note is archived verbatim in
-[`original/dflash-training-formulas.ru.md`](https://github.com/biscet/lm-docs/blob/main/original/dflash-training-formulas.ru.md),
-so the translation can be compared against it.
+The [Whittle experiment history](experiments/index.md) covers training through
+16 November 2026. Results were transcribed from the supplied training history;
+the underlying runs and archive tests were not rerun here.
+[Coach archive and sources](experiments/coach.md) maps the referenced scripts
+and records the reported verification scope. The separate archive is not
+included in this repository.
+
+## Public weights and datasets
+
+- [Whittle DFlash2](https://huggingface.co/biscet/Whittle-35B-A3B-DFlash2)
+- [Weight snapshot v1.0.0](https://huggingface.co/biscet/Whittle-35B-A3B-DFlash2/tree/v1.0.0)
+- [Weight snapshot v1.2.0](https://huggingface.co/biscet/Whittle-35B-A3B-DFlash2/tree/v1.2.0)
+- [Immutable publication commit for v1.2.1](https://huggingface.co/biscet/Whittle-35B-A3B-DFlash2/commit/7c12955b782befff10cde7b28e170f8cec789a19)
+- [DFlash DeepSeek TraceMix](https://huggingface.co/datasets/biscet/DFlash-DeepSeek-TraceMix)
+- [DFlash TraceMix Lite v1.0.0](https://huggingface.co/datasets/biscet/DFlash-TraceMix-Lite/tree/v1.0.0)
+
+For reproduction, use the experiment's code, configuration and input hashes.
+A mutable model README alone does not identify a training run.

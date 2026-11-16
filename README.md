@@ -4,11 +4,14 @@ Notes on language models: how they are trained, how inference gets faster, and
 what the measurements really show. The repo is meant to grow. New topics get
 their own folder under `docs/`, and each page answers one question.
 
-Right now there is one chapter: a walkthrough of a DFlash2 Stage-2 run. It covers
-what the trainer computes, which formulas it uses, what came out, and what those
-numbers do not prove. The source was a long Russian note. The original stays in
-`original/` untouched, and the English version is split into small pages that
-build into a site.
+The DFlash2 material has two parts:
+
+- [Stage-2 walkthrough](docs/overview/pipeline.md): the trainer, formulas,
+  validation and runtime benchmark for the 13 November run.
+- [Whittle training experiments](docs/experiments/index.md): the path from LoRA
+  to full training, replay, dense anchors, selector-only and forward KL.
+
+Both parts use short pages in English and Russian.
 
 The site is bilingual. Every page has an English file and a Russian twin, built
 at `/` and `/ru/`, and the header carries a language switch that stays on the
@@ -22,7 +25,6 @@ Russian README: [README.ru.md](README.ru.md).
 | --- | --- |
 | `docs/` | English pages plus `*.ru.md` twins, one topic per file, built by MkDocs |
 | `mkdocs.yml` | Site config, navigation, locales, math and diagram setup |
-| `original/` | The Russian source note, verbatim |
 | `requirements.txt` | Pinned Python dependencies for the build |
 | `README.ru.md` | Russian version of this file |
 
@@ -40,6 +42,7 @@ The site follows the training path in order:
 | Runtime and benchmark | Server verification, acceptance, speedup model, the 768-request benchmark, paired bootstrap |
 | Training workflow | Checkpoint choice, feature storage, optimizer state memory, export rounding |
 | Dataset | Mixing ratios and split leakage |
+| Whittle experiments | Configurations, completed budgets, results and checkpoint lineage through 16 November 2026 |
 | Reference | One training step in pseudocode, limits of the formulas, sources |
 
 ## Preview locally
@@ -106,15 +109,14 @@ Both are pinned upstream releases copied in as-is: KaTeX 0.16.22 and Mermaid
 
 ## Scope and provenance
 
-The numbers come from one Stage-2 run with frozen target weights. They describe
-this trainer, not DFlash2 as a whole: other implementations may use different
-coefficients, metrics and acceptance accounting. Where something is a guess
-rather than a measurement, the page says so (see
-[What formulas cannot tell](docs/caveats.md)).
+The Stage-2 walkthrough describes one run. The experiment history covers several
+Whittle draft-training runs through 16 November 2026. Target weights stayed
+frozen. Configurations and results describe these implementations, not every
+DFlash2 trainer.
 
-Files referenced in the notes (`scripts/train_shard.py`, `source/zmodel.py` and
-others) belong to the internal trainer behind that run. They are not part of this
-repo.
+Referenced trainer files and the Coach experiment archive are not included in
+this repository. Training and archive tests were not rerun for this documentation
+edit. See [sources](docs/sources.md) and [archive details](docs/experiments/coach.md).
 
 ## Licence and status
 

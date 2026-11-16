@@ -1,7 +1,7 @@
 site_name: LM Knowledge Base
 site_description: >-
-  How the DFlash2 draft model is trained: formulas, measurements and caveats
-  from one concrete Stage-2 run.
+  DFlash2 draft training: a Stage-2 walkthrough and the Whittle experiment
+  history, with formulas, configurations and measured results.
 site_url: https://biscet.github.io/lm-docs/
 repo_url: https://github.com/biscet/lm-docs
 repo_name: biscet/lm-docs
@@ -62,8 +62,8 @@ plugins:
           build: true
           site_name: База знаний по LLM
           site_description: >-
-            Как обучается draft-модель DFlash2: формулы, замеры и оговорки
-            одного прогона Stage-2.
+            Обучение draft-модели DFlash2: разбор Stage-2 и история опытов
+            Whittle с формулами, конфигурациями и результатами.
           theme:
             language: ru
           nav_translations:
@@ -90,6 +90,7 @@ plugins:
             Selector scoring: Скоринг селектора
             Selector loss: Loss селектора
             Total loss: Общий loss
+            Full-vocabulary forward KL: Forward KL по всему словарю
             Optimization: Оптимизация
             Gradient clipping: Gradient clipping
             AdamW: AdamW
@@ -100,6 +101,7 @@ plugins:
             Prefix proxy: Prefix proxy
             Validation windows: Окна валидации
             Training positions: Обучающие позиции
+            Self-conditioned evaluation: Self-conditioned оценка
             Multi-anchor analysis: Несколько anchor
             Averaging over anchors: Усреднение по anchor
             Expected coverage: Ожидаемое покрытие
@@ -116,6 +118,23 @@ plugins:
             Feature storage: Хранение признаков
             Optimizer state memory: Память оптимизатора
             Export and rounding: Экспорт и округление
+            Selection across experiments: Отбор в разных опытах
+            Weight seed and resume: Начальные веса и resume
+            Whittle experiments: Эксперименты Whittle
+            Experiment map: Карта экспериментов
+            Shared training setup: Общая конфигурация обучения
+            LoRA pilot: LoRA-пилот
+            "Project v1: full training": "Project v1: полное обучение"
+            "OpenMix v2: replay": "OpenMix v2: replay"
+            "DatasetDflash v3: shards": "DatasetDflash v3: шарды"
+            Stage-2 supplement: Дополнение Stage-2
+            "Dense8: eight anchors": "Dense8: восемь anchor"
+            Uniform vs D-PACE: Uniform и D-PACE
+            Selector-only pilot: Selector-only пилот
+            Long selector training: Долгое обучение селектора
+            Partial unfreeze: Partial unfreeze
+            Hard CE vs forward KL: Hard CE против forward KL
+            Coach archive and sources: Архив Coach и источники
             Dataset: Датасет
             Mixing: Смесь
             Splits and leakage: Сплиты и утечки
@@ -182,6 +201,7 @@ nav:
       - Selector scoring: objective/selector-scoring.md
       - Selector loss: objective/selector-loss.md
       - Total loss: objective/total-loss.md
+      - Full-vocabulary forward KL: objective/forward-kl.md
   - Optimization:
       - Gradient clipping: optimization/gradient-clipping.md
       - AdamW: optimization/adamw.md
@@ -192,6 +212,7 @@ nav:
       - Prefix proxy: validation/prefix-proxy.md
       - Validation windows: validation/validation-windows.md
       - Training positions: validation/training-positions.md
+      - Self-conditioned evaluation: validation/self-conditioned.md
   - Multi-anchor analysis:
       - Averaging over anchors: analysis/multi-anchor.md
       - Expected coverage: analysis/anchor-coverage.md
@@ -208,9 +229,26 @@ nav:
       - Feature storage: workflow/feature-storage.md
       - Optimizer state memory: workflow/training-state.md
       - Export and rounding: workflow/export.md
+      - Selection across experiments: workflow/experiment-selection.md
+      - Weight seed and resume: workflow/resume.md
   - Dataset:
       - Mixing: dataset/mixing.md
       - Splits and leakage: dataset/splits.md
+  - Whittle experiments:
+      - Experiment map: experiments/index.md
+      - Shared training setup: experiments/setup.md
+      - LoRA pilot: experiments/lora.md
+      - "Project v1: full training": experiments/project.md
+      - "OpenMix v2: replay": experiments/openmix.md
+      - "DatasetDflash v3: shards": experiments/sharded.md
+      - Stage-2 supplement: experiments/stage2.md
+      - "Dense8: eight anchors": experiments/dense-anchors.md
+      - Uniform vs D-PACE: experiments/position-weighting.md
+      - Selector-only pilot: experiments/selector-only.md
+      - Long selector training: experiments/selector-long.md
+      - Partial unfreeze: experiments/partial-unfreeze.md
+      - Hard CE vs forward KL: experiments/ce-kl.md
+      - Coach archive and sources: experiments/coach.md
   - Reference:
       - One training step: pseudocode.md
       - What formulas cannot tell: caveats.md
