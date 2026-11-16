@@ -2,9 +2,9 @@ site_name: LM Knowledge Base
 site_description: >-
   DFlash2 draft training: a Stage-2 walkthrough and the Whittle experiment
   history, with formulas, configurations and measured results.
-site_url: https://biscet.github.io/lm-docs/
-repo_url: https://github.com/biscet/lm-docs
-repo_name: biscet/lm-docs
+site_url: https://biscet.github.io/ML-Docs/
+repo_url: https://github.com/biscet/ML-Docs
+repo_name: biscet/ML-Docs
 edit_uri: edit/main/docs/
 
 docs_dir: docs

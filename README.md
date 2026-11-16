@@ -56,9 +56,9 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
-Open <http://127.0.0.1:8000/lm-docs/> for English and
-<http://127.0.0.1:8000/lm-docs/ru/> for Russian. The `/lm-docs/` prefix comes
-from `site_url`, since the repo is published as a GitHub Pages project site.
+Open <http://127.0.0.1:8000/ML-Docs/> for English and
+<http://127.0.0.1:8000/ML-Docs/ru/> for Russian. The `/ML-Docs/` prefix comes
+from `site_url`, configured for a GitHub Pages project site.
 Before pushing, run `mkdocs build --strict`: it fails on broken links and pages
 missing from the navigation.
 
