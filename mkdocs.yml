@@ -1,7 +1,7 @@
 site_name: LM Knowledge Base
 site_description: >-
-  DFlash2 draft training: a Stage-2 walkthrough and the Whittle experiment
-  history, with formulas, configurations and measured results.
+  Whittle draft training notes covering DFlash2 experiments and offline
+  EAGLE-3 training on V100.
 site_url: https://biscet.github.io/ML-Docs/
 repo_url: https://github.com/biscet/ML-Docs
 repo_name: biscet/ML-Docs
@@ -62,8 +62,8 @@ plugins:
           build: true
           site_name: База знаний по LLM
           site_description: >-
-            Обучение draft-модели DFlash2: разбор Stage-2 и история опытов
-            Whittle с формулами, конфигурациями и результатами.
+            Заметки об обучении draft-моделей для Whittle. Эксперименты
+            с DFlash2 и офлайн-обучение EAGLE-3 на V100.
           theme:
             language: ru
           nav_translations:
@@ -135,6 +135,9 @@ plugins:
             Partial unfreeze: Partial unfreeze
             Hard CE vs forward KL: Hard CE против forward KL
             Coach archive and sources: Архив Coach и источники
+            EAGLE-3 on Whittle: EAGLE-3 для Whittle
+            Whittle features: Признаки Whittle
+            Offline training on V100: Офлайн-обучение на V100
             Dataset: Датасет
             Mixing: Смесь
             Splits and leakage: Сплиты и утечки
@@ -249,6 +252,9 @@ nav:
       - Partial unfreeze: experiments/partial-unfreeze.md
       - Hard CE vs forward KL: experiments/ce-kl.md
       - Coach archive and sources: experiments/coach.md
+  - EAGLE-3 on Whittle:
+      - Whittle features: eagle3/whittle-features.md
+      - Offline training on V100: eagle3/offline-v100.md
   - Reference:
       - One training step: pseudocode.md
       - What formulas cannot tell: caveats.md

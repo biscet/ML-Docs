@@ -4,14 +4,14 @@ Notes on language models: how they are trained, how inference gets faster, and
 what the measurements really show. The repo is meant to grow. New topics get
 their own folder under `docs/`, and each page answers one question.
 
-The DFlash2 material has two parts:
+## Training notes
 
-- [Stage-2 walkthrough](docs/overview/pipeline.md): the trainer, formulas,
-  validation and runtime benchmark for the 13 November run.
-- [Whittle training experiments](docs/experiments/index.md): the path from LoRA
-  to full training, replay, dense anchors, selector-only and forward KL.
-
-Both parts use short pages in English and Russian.
+- [DFlash2 Stage-2](docs/overview/pipeline.md) covers the trainer, formulas,
+  validation and runtime benchmark from 13 November.
+- The [Whittle experiment history](docs/experiments/index.md) follows DFlash2
+  training from LoRA to forward KL.
+- [EAGLE-3 on V100](docs/eagle3/offline-v100.md) covers Whittle features,
+  offline training and the smoke run from 18 November.
 
 The site is bilingual. Every page has an English file and a Russian twin, built
 at `/` and `/ru/`, and the header carries a language switch that stays on the
@@ -28,8 +28,6 @@ Russian README: [README.ru.md](README.ru.md).
 | `requirements.txt` | Pinned Python dependencies for the build |
 | `README.ru.md` | Russian version of this file |
 
-The site follows the training path in order:
-
 | Section | Contents |
 | --- | --- |
 | Overview | The two prediction tasks, notation, the pipeline |
@@ -43,6 +41,7 @@ The site follows the training path in order:
 | Training workflow | Checkpoint choice, feature storage, optimizer state memory, export rounding |
 | Dataset | Mixing ratios and split leakage |
 | Whittle experiments | Configurations, completed budgets, results and checkpoint lineage through 16 November 2026 |
+| EAGLE-3 on Whittle | Feature layout, token alignment, offline training and the V100 smoke run |
 | Reference | One training step in pseudocode, limits of the formulas, sources |
 
 ## Preview locally

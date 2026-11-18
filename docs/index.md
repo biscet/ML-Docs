@@ -1,14 +1,8 @@
-# DFlash2 draft training
+# Whittle draft training
 
-Updated 16 November 2026.
+Updated 18 November 2026.
 
-This knowledge base covers the Whittle DFlash2 draft: a detailed Stage-2
-walkthrough and a history of training experiments from LoRA to forward KL.
-
-DFlash has two jobs that differ from ordinary LLM fine-tuning. The base model
-already knows how to answer. A small draft model learns to anticipate its next
-tokens so the base model can check several tokens in one forward pass. In this
-run the base model's weights never changed.
+Training notes for DFlash2 and EAGLE-3 with Whittle as the target model.
 
 ## Where to start
 
@@ -16,6 +10,7 @@ run the base model's weights never changed.
 | --- | --- |
 | [Stage-2 walkthrough](overview/pipeline.md) | Data, architecture, loss, validation and runtime benchmark for the 13 November run |
 | [Whittle experiments](experiments/index.md) | Training configurations, completed budgets, results and checkpoint lineage through 16 November |
+| [EAGLE-3 for Whittle](eagle3/whittle-features.md) | How EAGLE-3 works, Whittle features and the V100 run |
 
 ## Stage-2 at a glance
 
